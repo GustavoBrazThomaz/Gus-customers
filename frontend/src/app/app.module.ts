@@ -5,18 +5,34 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Angular core
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http'
 
 // Components
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppComponent } from './app.component';
+import { TabelaComponent } from './components/tabela/tabela.component';
+
 
 // Material
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormDialogComponent } from './components/form-dialog/form-dialog.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { LocalDateTimePipe } from './services/pipe/local-date-time.pipe';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PersonUpdateComponent } from './components/person-update/person-update.component';
 
 
 @NgModule({
@@ -24,17 +40,34 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    TabelaComponent,
+    FormDialogComponent,
+    LocalDateTimePipe,
+    PersonUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatToolbarModule,
-    HttpClient
+    MatButtonModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatCardModule,
+    MatIconModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatPaginatorModule
   ],
-  providers: [],
+  providers: [HttpClient,LocalDateTimePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

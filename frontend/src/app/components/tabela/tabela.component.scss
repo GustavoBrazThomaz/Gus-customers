@@ -1,0 +1,18 @@
+.Titulo-Tabela{
+    display: flex;
+    justify-content: space-between;
+
+    mat-icon{
+        cursor: pointer;
+    }
+}
+table{
+    width: 100%;
+
+    .edit{
+        color: rgb(0, 110, 255);
+    }
+    .delete{
+        color: red;
+    }
+}

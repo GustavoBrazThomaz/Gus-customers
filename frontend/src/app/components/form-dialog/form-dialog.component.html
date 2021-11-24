@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Hi Arrombado</h1>
+<div mat-dialog-content>
+ <form class="example-form" [formGroup]="PersonForm">
+    <mat-form-field class="example-full-width">
+        <mat-label>Primeiro Nome</mat-label>
+        <input matInput formControlName="firstName" name="firstName">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Ultimo Nome</mat-label>
+        <input matInput formControlName="lastName" name="lastName">
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" name="email">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Profissão</mat-label>
+        <input matInput formControlName="carrer" name="carrer">
+      </mat-form-field>
+
+      <div fxLayout="row wrap">
+        <div fxFlex="100" fxFill fxLayoutAling="start center">        
+          <mat-form-field appearance="fill">
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthDate" name="birthDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field> 
+          <!--Date-->
+        </div>
+      </div>
+ </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="createPerson()"> Adicionar</button>
+  <button mat-button (click)="cancel()">Cancelar</button>
+</div>

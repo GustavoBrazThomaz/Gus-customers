@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true
 };
 
 /*
@@ -16,4 +16,5 @@ export const environment = {
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
 
 
-export const API_PATH = 'http://localhost:3000/content'
+//export const API_PATH = 'http://localhost:3000/content'
+export const API_PATH = 'https://rod-customers.herokuapp.com/api/customers'

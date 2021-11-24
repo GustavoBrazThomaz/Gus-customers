@@ -1,0 +1,16 @@
+mat-toolbar{
+    position: fixed;
+    bottom: 0;
+
+    background-color: rgb(35, 1, 51);
+    display: flex;
+    justify-content: flex-end;
+
+    span{
+        color: white;
+    }
+    .material-icons{
+        position: relative;
+        top: 4px;
+    }
+}
