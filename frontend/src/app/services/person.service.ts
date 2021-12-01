@@ -30,8 +30,8 @@ export class PersonService {
     return this.httpClient.post<any>(API_PATH, person, this.httpOptions)
   }
 
-  public AtualizarPerson(id: any): Observable<Iperson>{
-    return this.httpClient.put<any>(`${API_PATH} / ${id}`, id)
+  public AtualizarPerson(id: string, person: Iperson): Observable<Iperson>{
+      return this.httpClient.put<Iperson>(`${API_PATH}/${id}`,person)
   }
 
   public deletarPerson(id: number): Observable<Iperson>{

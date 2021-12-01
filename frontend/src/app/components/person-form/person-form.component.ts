@@ -11,10 +11,12 @@ import { Component, OnInit } from '@angular/core';
 export class PersonFormComponent implements OnInit {
 
   person!: Iperson;
-
+  
   constructor(private personService: PersonService, 
     private  router: Router, 
-    private route: ActivatedRoute,) {}
+    private route: ActivatedRoute,) {
+      
+    }
 
 
   ngOnInit(): void {
@@ -28,20 +30,27 @@ export class PersonFormComponent implements OnInit {
 }
   
   atualizarProduto(): void{
-    this.personService.AtualizarPerson(this.person).subscribe(() => {
-      this.router.navigate(["/tabela"])
+    const id = this.route.snapshot.paramMap.get('id')
+    if(typeof id === 'string'){
+    this.personService.AtualizarPerson(id, this.person).subscribe( data =>{
+      this.urlTabela()
     })
+  }
   }
 
   delete(): void{
     if(typeof this.person !== undefined){
     this.personService.deletarPerson(this.person.id).subscribe(() => {
-      this.router.navigate(["/tabela"])
+      this.urlTabela()
     })
   }
   }
 
   cancel(): void{
-    this.router.navigate(["/tabela"])
+    this.urlTabela()
+  }
+
+  urlTabela(): void{
+    this.router.navigate(['/tabela'])
   }
 }
