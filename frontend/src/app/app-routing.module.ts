@@ -1,8 +1,8 @@
+import { PersonFormComponent } from './components/person-form/person-form.component';
 import { TabelaComponent } from './components/tabela/tabela.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PersonUpdateComponent } from './components/person-update/person-update.component';
 
 const routes: Routes = [{
   path: "",
@@ -12,7 +12,7 @@ const routes: Routes = [{
   component: TabelaComponent
 },{
   path: "tabela/person/:id",
-  component: PersonUpdateComponent
+  component: PersonFormComponent
 }
 ];
 

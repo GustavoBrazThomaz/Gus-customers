@@ -2,28 +2,34 @@
     <form class="example-form" >
         <div class="container">
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Nome</mat-label>
-                <input matInput name="firstName">
+                <mat-label>Favorite food</mat-label>
+                <input matInput [(ngModel)]="person.firstName">
             </mat-form-field>
+              
         
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Sobrenome</mat-label>
-                <input matInput name="lastName">
+                <input matInput name="lastName" [(ngModel)]="person.lastName">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>E-Mail</mat-label>
-                <input matInput name="email">
+                <input matInput name="email" [(ngModel)]="person.email">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Profissão</mat-label>
-                <input matInput name="carrer">
+                <input matInput name="carrer" [(ngModel)]="person.carrer">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Data</mat-label>
+                <input matInput [(ngModel)]="person.birthDate" name="birthDate">
             </mat-form-field>
         </div>
 
-        <button mat-flat-button color="primary">Atualizar</button>
+        <button mat-flat-button color="primary" (click)="atualizarProduto()">Atualizar</button>
         <button mat-flat-button color="accent" (click)="cancel()">Cancelar</button>
-        <button mat-flat-button color="warn">Delete</button>
+        <button mat-flat-button color="warn" (click)="delete()">Delete</button>
     </form> 
 </mat-card>

@@ -28,12 +28,12 @@ import { FormDialogComponent } from './components/form-dialog/form-dialog.compon
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { LocalDateTimePipe } from './services/pipe/local-date-time.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PersonUpdateComponent } from './components/person-update/person-update.component';
-
+import { MatInputModule } from '@angular/material/input';
+import { PersonFormComponent } from './components/person-form/person-form.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,8 @@ import { PersonUpdateComponent } from './components/person-update/person-update.
     TabelaComponent,
     FormDialogComponent,
     LocalDateTimePipe,
-    PersonUpdateComponent
+    PersonUpdateComponent,
+    PersonFormComponent
   ],
   imports: [
     BrowserModule,

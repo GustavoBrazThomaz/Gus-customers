@@ -1,9 +1,10 @@
-import { Iperson } from './Iperson';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Iperson } from './Iperson';
+
 import { API_PATH } from 'src/environments/environment';
 import { Pagination } from './Pagination.model'
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,8 @@ export class PersonService {
     return this.httpClient.get<Pagination>(API_PATH + '?carrer=' + carrer)
   }
 
-  public getPersonWithID(id: string): Observable<Pagination>{
-    return this.httpClient.get<Pagination>(API_PATH + id)
+  public getPersonWithID(id: string): Observable<Iperson>{
+    return this.httpClient.get<Iperson>(`${API_PATH}/${id}`)
   }
 
   public postPerson(person: any): Observable<Iperson>{
@@ -30,12 +31,16 @@ export class PersonService {
   }
 
   public AtualizarPerson(id: any): Observable<Iperson>{
-    return this.httpClient.put<any>(`${API_PATH} / ${id}`, id, this.httpOptions)
+    return this.httpClient.put<any>(`${API_PATH} / ${id}`, id)
   }
 
-  public deletarPerson(id: string): Observable<Iperson>{
+  public deletarPerson(id: number): Observable<Iperson>{
 
     const url = `${API_PATH}/${id}`
     return this.httpClient.delete<any>(url)
+  }
+
+  public paginacao(carrer: string, size: string, pages: string) {
+    return this.httpClient.get<any>(API_PATH + '?carrer=' + carrer + '&' + 'size=' + size + '&' + 'page=' + pages)
   }
 }
