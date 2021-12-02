@@ -8,11 +8,15 @@
 }
 table{
     width: 100%;
-
     .edit{
         color: rgb(0, 110, 255);
     }
     .delete{
         color: red;
     }
+}
+
+mat-paginator{
+    width: 100%;
+    border-top: none;
 }

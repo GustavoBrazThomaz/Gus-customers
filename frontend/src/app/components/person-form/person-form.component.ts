@@ -14,11 +14,8 @@ export class PersonFormComponent implements OnInit {
   
   constructor(private personService: PersonService, 
     private  router: Router, 
-    private route: ActivatedRoute,) {
-      
-    }
-
-
+    private route: ActivatedRoute,) {}
+    
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
     if(typeof id === 'string'){

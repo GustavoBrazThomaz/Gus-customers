@@ -34,6 +34,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { PersonUpdateComponent } from './components/person-update/person-update.component';
 import { MatInputModule } from '@angular/material/input';
 import { PersonFormComponent } from './components/person-form/person-form.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSelectModule } from '@angular/material/select';
+
+
 
 @NgModule({
   declarations: [
@@ -66,9 +70,11 @@ import { PersonFormComponent } from './components/person-form/person-form.compon
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule,
+    MatSelectModule
   ],
-  providers: [HttpClient,LocalDateTimePipe],
+  providers: [HttpClient, LocalDateTimePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

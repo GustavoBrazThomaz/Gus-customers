@@ -18,8 +18,8 @@ export class PersonService {
   }
   constructor(private httpClient: HttpClient) { }
 
-  public getPersonWithCarrer(carrer: string): Observable<Pagination>{
-    return this.httpClient.get<Pagination>(API_PATH + '?carrer=' + carrer)
+  public getPersonWithCarrer(page: number, size: number): Observable<Pagination>{
+    return this.httpClient.get<Pagination>(API_PATH + '?page=' + page + '&' + 'size=' + size)
   }
 
   public getPersonWithID(id: string): Observable<Iperson>{
@@ -40,7 +40,4 @@ export class PersonService {
     return this.httpClient.delete<any>(url)
   }
 
-  public paginacao(carrer: string, size: string, pages: string) {
-    return this.httpClient.get<any>(API_PATH + '?carrer=' + carrer + '&' + 'size=' + size + '&' + 'page=' + pages)
-  }
 }
