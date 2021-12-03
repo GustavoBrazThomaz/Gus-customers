@@ -19,38 +19,39 @@ import { MatTableDataSource } from '@angular/material/table';
 
 export class TabelaComponent implements OnInit {
 
-  @ViewChild(MatSort)
+  @ViewChild('paginator') paginator: MatPaginator;
 
   person: Iperson[] = [];
   pagination: Pagination
 
   displayedColumns = ['id', 'firstName', 'lastName', 'birthDate', 'email', 'carrer', 'action'];
   dataSource: MatTableDataSource<any>
- 
-  @ViewChild('paginator') paginator: MatPaginator;
+
+  page: number = 0
+  size: number = 10
+  totalPage: number
 
   constructor(public PersonService: PersonService, public dialog: MatDialog) { }
   
-   pageSlice = this.getPerson(0 , 10)
+  pageSlice = this.getPerson(this.page, this.size)
 
   ngOnInit(): void {
     this.pageSlice
   }
 
   OnPageChange(event){
-    console.log(event)
-    const startIndex = event.pageIndex * event.pageSize
-    let endIndex = startIndex + event.pageSize
 
-    this.pageSlice = this.getPerson(startIndex, endIndex)  
-    console.log(startIndex)
-    console.log(endIndex)
+    this.page = event.pageIndex
+    this.size = event.pageSize
+    
+    this.pageSlice = this.getPerson(this.page, this.size)
   }
 
   getPerson(page, size){
     this.PersonService.getPersonWithCarrer(page, size).subscribe(
       data => {
-        this.person = data.content;  
+        this.person = data.content; 
+        this.totalPage = data.totalElements 
       });
   }
 

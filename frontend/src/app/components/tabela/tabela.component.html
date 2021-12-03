@@ -71,8 +71,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <mat-paginator class="mat-elevation-z4" 
-      [length]="this.person.length"
-      [pageSize]="10"
+      [length]="totalPage"
+      [pageSize]="size"
       [pageSizeOptions]="[5, 10, 15]"
       (page)="OnPageChange($event)"
       aria-label="Select page">
