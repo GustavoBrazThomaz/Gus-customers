@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
@@ -16,10 +17,18 @@ export class PersonService {
       'content-type': 'application/json'
     })
   }
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private snackBar: MatSnackBar) { }
 
-  public getPersonWithCarrer(page: number, size: number): Observable<Pagination>{
-    return this.httpClient.get<Pagination>(API_PATH + '?page=' + page + '&' + 'size=' + size)
+  showMessage(msg: string): void{
+    this.snackBar.open(msg, 'X', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top' 
+    })
+  }
+
+  public getPersonWithCarrer(page: number, size: number, carrer: string): Observable<Pagination>{
+    return this.httpClient.get<Pagination>(API_PATH + '?page=' + page + '&size=' + size + '&carrer=' + carrer)
   }
 
   public getPersonWithID(id: string): Observable<Iperson>{

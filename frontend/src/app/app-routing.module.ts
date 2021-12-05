@@ -13,6 +13,9 @@ const routes: Routes = [{
 },{
   path: "tabela/person/:id",
   component: PersonFormComponent
+},{
+  path: 'tabela/search/:searchTerm',
+  component: TabelaComponent
 }
 ];
 

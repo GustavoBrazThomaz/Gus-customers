@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonFormComponent implements OnInit {
 
-  person!: Iperson;
+  person: Iperson;
   
   constructor(private personService: PersonService, 
     private  router: Router, 
@@ -18,29 +18,27 @@ export class PersonFormComponent implements OnInit {
     
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    if(typeof id === 'string'){
+    
     this.personService.getPersonWithID(id).subscribe(person =>{
       this.person = person
     })
-  }
+  
   console.log(id)
 }
   
   atualizarProduto(): void{
     const id = this.route.snapshot.paramMap.get('id')
-    if(typeof id === 'string'){
+    
     this.personService.AtualizarPerson(id, this.person).subscribe( data =>{
       this.urlTabela()
     })
   }
-  }
 
   delete(): void{
-    if(typeof this.person !== undefined){
+
     this.personService.deletarPerson(this.person.id).subscribe(() => {
       this.urlTabela()
     })
-  }
   }
 
   cancel(): void{

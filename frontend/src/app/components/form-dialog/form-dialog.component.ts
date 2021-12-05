@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PersonService } from './../../services/person.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,8 @@ export class FormDialogComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<FormDialogComponent>,
-    private rest: PersonService
+    private rest: PersonService,
+    private  router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +34,9 @@ export class FormDialogComponent implements OnInit {
   createPerson(){
     let newDate: moment.Moment = moment.utc(this.PersonForm.value.birthDate).local()
     this.PersonForm.value.birthDate = newDate.format("YYYY-MM-DD")
-    this.rest.postPerson(this.PersonForm.value).subscribe(result => {});
+    this.rest.postPerson(this.PersonForm.value).subscribe(result => {
+      this.router.navigate(['/tabela'])
+    });
     this.dialogRef.close();
   }
 

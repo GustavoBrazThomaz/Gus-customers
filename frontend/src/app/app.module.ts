@@ -13,7 +13,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppComponent } from './app.component';
 import { TabelaComponent } from './components/tabela/tabela.component';
-
+import { PersonFormComponent } from './components/person-form/person-form.component';
+import { FormDialogComponent } from './components/form-dialog/form-dialog.component';
 
 // Material
 import { MatSliderModule } from '@angular/material/slider';
@@ -24,19 +25,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FormDialogComponent } from './components/form-dialog/form-dialog.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { LocalDateTimePipe } from './services/pipe/local-date-time.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { PersonUpdateComponent } from './components/person-update/person-update.component';
 import { MatInputModule } from '@angular/material/input';
-import { PersonFormComponent } from './components/person-form/person-form.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -48,8 +47,7 @@ import { MatSelectModule } from '@angular/material/select';
     TabelaComponent,
     FormDialogComponent,
     LocalDateTimePipe,
-    PersonUpdateComponent,
-    PersonFormComponent
+    PersonFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +70,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatDatepickerModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule,
+    MatAutocompleteModule
   ],
   providers: [HttpClient, LocalDateTimePipe],
   bootstrap: [AppComponent]
