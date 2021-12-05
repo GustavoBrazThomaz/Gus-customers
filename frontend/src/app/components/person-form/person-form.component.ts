@@ -32,6 +32,7 @@ export class PersonFormComponent implements OnInit {
     this.personService.AtualizarPerson(id, this.person).subscribe( data =>{
       this.urlTabela()
     })
+    this.personService.showMessage('Produto Atualizado')
   }
 
   delete(): void{
@@ -39,6 +40,7 @@ export class PersonFormComponent implements OnInit {
     this.personService.deletarPerson(this.person.id).subscribe(() => {
       this.urlTabela()
     })
+    this.personService.showMessage('Produto Deletado')
   }
 
   cancel(): void{

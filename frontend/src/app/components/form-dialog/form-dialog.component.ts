@@ -18,7 +18,8 @@ export class FormDialogComponent implements OnInit {
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<FormDialogComponent>,
     private rest: PersonService,
-    private  router: Router
+    private  router: Router,
+    private PersonService: PersonService
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +38,7 @@ export class FormDialogComponent implements OnInit {
     this.rest.postPerson(this.PersonForm.value).subscribe(result => {
       this.router.navigate(['/tabela'])
     });
+    this.PersonService.showMessage('Produto Criado')
     this.dialogRef.close();
   }
 
