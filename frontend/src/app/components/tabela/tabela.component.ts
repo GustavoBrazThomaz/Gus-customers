@@ -36,16 +36,18 @@ export class TabelaComponent implements OnInit {
 
   page: number = 0
   size: number = 10
-  totalPage: number
-  search: string
+  totalPage: number = 0 
+  search: string = ""
   carrer: string = ''
+  sort: string = ''
+  sortParam: string = ""
 
   constructor(public PersonService: PersonService, public dialog: MatDialog, private router: Router) { }
   
   
 
   ngOnInit(): void {
-    this.getPerson(this.page, this.size, this.carrer)
+    this.getPerson(this.page, this.size, this.carrer, this.sort, this.sortParam)
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -63,17 +65,17 @@ export class TabelaComponent implements OnInit {
     this.page = event.pageIndex
     this.size = event.pageSize
     
-    this.getPerson(this.page, this.size, this.carrer)
+    this.getPerson(this.page, this.size, this.carrer, this.sort, this.sortParam)
   }
 
   procurar(){
     this.carrer = this.search
     
-    this.getPerson(this.page, this.size, this.carrer)
+    this.getPerson(this.page, this.size, this.carrer, this.sort, this.sortParam)
   }
 
-  getPerson(page, size, carrer){
-    this.PersonService.getPersonWithCarrer(page, size, carrer).subscribe(
+  getPerson(page, size, carrer, sort, sortParam){
+    this.PersonService.getPersonWithCarrer(page, size, carrer, sort, sortParam).subscribe(
       data => {
         this.person = data.content; 
         this.totalPage = data.totalElements 
@@ -89,6 +91,13 @@ export class TabelaComponent implements OnInit {
       console.log('The dialog was closed');
     });
   } 
+
+  sortBy(event): void{
+    this.sort = event.active
+    this.sortParam = event.direction
+
+    this.getPerson(this.page, this.size, this.carrer, this.sort, this.sortParam)
+  }
 
 }
 
