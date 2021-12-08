@@ -36,6 +36,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PersonDeleteComponent } from './components/person-delete/person-delete.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     FormDialogComponent,
     LocalDateTimePipe,
     PersonFormComponent,
+    PersonDeleteComponent,
   ],
   imports: [
     BrowserModule,

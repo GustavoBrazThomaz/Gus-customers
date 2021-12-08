@@ -47,6 +47,7 @@ export class TabelaComponent implements OnInit {
   
 
   ngOnInit(): void {
+    
     this.getPerson(this.page, this.size, this.carrer, this.sort, this.sortParam)
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -88,7 +89,6 @@ export class TabelaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   } 
 

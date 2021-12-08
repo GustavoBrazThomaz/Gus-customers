@@ -1,3 +1,4 @@
+import { PersonDeleteComponent } from './components/person-delete/person-delete.component';
 import { PersonFormComponent } from './components/person-form/person-form.component';
 import { TabelaComponent } from './components/tabela/tabela.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,8 +15,8 @@ const routes: Routes = [{
   path: "tabela/person/:id",
   component: PersonFormComponent
 },{
-  path: 'tabela/search/:searchTerm',
-  component: TabelaComponent
+  path: 'tabela/delete/:id',
+  component: PersonDeleteComponent
 }
 ];
 

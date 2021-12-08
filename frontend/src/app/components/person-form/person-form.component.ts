@@ -36,11 +36,7 @@ export class PersonFormComponent implements OnInit {
   }
 
   delete(): void{
-
-    this.personService.deletarPerson(this.person.id).subscribe(() => {
-      this.urlTabela()
-    })
-    this.personService.showMessage('Produto Deletado')
+    this.router.navigate(['tabela/delete/' + this.person.id])
   }
 
   cancel(): void{
