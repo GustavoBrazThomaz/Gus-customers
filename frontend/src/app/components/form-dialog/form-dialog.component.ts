@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
+import { catchError, empty } from 'rxjs';
 
 
 @Component({
@@ -34,12 +35,18 @@ export class FormDialogComponent implements OnInit {
 
   createPerson(){
     let newDate: moment.Moment = moment.utc(this.PersonForm.value.birthDate).local()
+
     this.PersonForm.value.birthDate = newDate.format("YYYY-MM-DD")
+
     this.rest.postPerson(this.PersonForm.value).subscribe(result => {
       this.router.navigate(['/tabela'])
+    },
+    error => {
+      this.PersonService.showMessage('Preencha todos os campos !!!')
+    },() => {
+      this.PersonService.showMessage('Produto Criado')
+      this.dialogRef.close()
     });
-    this.PersonService.showMessage('Produto Criado')
-    this.dialogRef.close();
   }
 
   cancel(): void {

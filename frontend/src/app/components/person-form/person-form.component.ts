@@ -33,8 +33,12 @@ export class PersonFormComponent implements OnInit {
     
     this.personService.AtualizarPerson(id, this.person).subscribe( data =>{
       this.urlTabela()
+    },error => {
+      this.personService.showMessage('Erro ao Atualizar')
+    },() => {
+      this.personService.showMessage('Produto Atualizado')
     })
-    this.personService.showMessage('Produto Atualizado')
+    
   }
 
   delete(): void{

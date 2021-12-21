@@ -4,6 +4,13 @@
     .filtro{
         margin-right: 1rem;
     }
+
+    .botaoPesquisar{
+        height: 50px;
+        position: absolute;
+        background-color: rgb(35, 1, 51);
+        color: white;
+    }
 }
 
 button{
@@ -13,11 +20,14 @@ button{
 .Titulo-Tabela{
     display: flex;
     justify-content: space-between;
+    background-color: rgb(35, 1, 51);
+    color: white;
 
     mat-icon{
         cursor: pointer;
     }
 }
+
 table{
     width: 100%;
     .edit{

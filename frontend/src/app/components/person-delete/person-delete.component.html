@@ -1,13 +1,13 @@
 <mat-card class="card-principal">
     <mat-card class="container-card">
-        <mat-card-subtitle>Deletar Pessoa</mat-card-subtitle>
+        <mat-card-title style="color: red;">Deletar Pessoa</mat-card-title>
         <mat-card class="img-card">
             <img mat-card-image src="{{url}}" alt="Perfil {{person.firstName}}">
         </mat-card>
     <form class="example-form" >
         <div class="container">
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Favorite food</mat-label>
+                <mat-label>Nome</mat-label>
                 <input matInput [value]="person.firstName" disabled>
             </mat-form-field>
               
@@ -33,7 +33,7 @@
         </div>
 
         <div class="botao">
-            <button mat-flat-button color="warn" (click)="delete()">Delete</button>
+            <button mat-flat-button color="warn" (click)="delete()">Deletar</button>
             <button mat-flat-button color="accent" (click)="cancel()">Cancelar</button>  
         </div>
     </form> 

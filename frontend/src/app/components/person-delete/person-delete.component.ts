@@ -32,10 +32,12 @@ export class PersonDeleteComponent implements OnInit {
 
   delete(): void{
 
-    this.personService.deletarPerson(this.person.id).subscribe(() => {
-      this.urlTabela()
-    })
-    this.personService.showMessage('Produto Deletado')
+    this.personService.deletarPerson(this.person.id).subscribe(res => {}, 
+    error =>  this.personService.showMessage('Erro!!'),
+    () =>  {
+      this.personService.showMessage('Produto Deletado')
+    this.urlTabela()
+  })
   }
 
   cancel(): void{
