@@ -1,35 +1,42 @@
-<mat-card>
-    <form class="example-form" >
-        <div class="container">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Favorite food</mat-label>
-                <input matInput [(ngModel)]="person.firstName">
-            </mat-form-field>
-              
-        
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Sobrenome</mat-label>
-                <input matInput name="lastName" [(ngModel)]="person.lastName">
-            </mat-form-field>
+<mat-card class="card-principal">
+    <mat-card class="container-card">
+        <mat-card class="img-card">
+            <img mat-card-image src="https://robohash.org/{{person.firstName}}.png?set=set5&bgset=bg1" alt="Perfil {{person.firstName}}">
+        </mat-card>
+        <form class="example-form" >
+            <div class="container">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Nome</mat-label>
+                    <input matInput [(ngModel)]="person.firstName">
+                </mat-form-field>
+                
+            
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Sobrenome</mat-label>
+                    <input matInput name="lastName" [(ngModel)]="person.lastName">
+                </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>E-Mail</mat-label>
-                <input matInput name="email" [(ngModel)]="person.email">
-            </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>E-Mail</mat-label>
+                    <input matInput name="email" [(ngModel)]="person.email">
+                </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Profissão</mat-label>
-                <input matInput name="carrer" [(ngModel)]="person.carrer">
-            </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Profissão</mat-label>
+                    <input matInput name="carrer" [(ngModel)]="person.carrer">
+                </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Data</mat-label>
-                <input matInput [(ngModel)]="person.birthDate" name="birthDate">
-            </mat-form-field>
-        </div>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Data</mat-label>
+                    <input matInput [(ngModel)]="person.birthDate" name="birthDate">
+                </mat-form-field>
+            </div>
 
-        <button mat-flat-button color="primary" (click)="atualizarProduto()">Atualizar</button>
-        <button mat-flat-button color="accent" (click)="cancel()">Cancelar</button>
-        <button mat-flat-button color="warn" (click)="delete()">Delete</button>
-    </form> 
+            <div class="botao">
+                <button mat-flat-button color="primary" (click)="atualizarProduto()">Atualizar</button>
+                <button mat-flat-button color="accent" (click)="cancel()">Cancelar</button>
+                <button mat-flat-button color="warn" (click)="delete()">Delete</button>
+            </div>
+        </form> 
+    </mat-card>
 </mat-card>

@@ -1,6 +1,15 @@
+.container-card{
+    box-shadow: none;
+
+    .filtro{
+        margin-right: 1rem;
+    }
+}
+
 button{
     margin-left: 1rem;
 }
+
 .Titulo-Tabela{
     display: flex;
     justify-content: space-between;

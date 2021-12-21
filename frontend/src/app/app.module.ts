@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 
 // Components
-import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppComponent } from './app.component';
@@ -38,11 +37,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PersonDeleteComponent } from './components/person-delete/person-delete.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     HomeComponent,
     TabelaComponent,

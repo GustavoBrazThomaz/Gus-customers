@@ -1,5 +1,9 @@
-<mat-card>
-    <mat-card-subtitle>Deletar Pessoa</mat-card-subtitle>
+<mat-card class="card-principal">
+    <mat-card class="container-card">
+        <mat-card-subtitle>Deletar Pessoa</mat-card-subtitle>
+        <mat-card class="img-card">
+            <img mat-card-image src="{{url}}" alt="Perfil {{person.firstName}}">
+        </mat-card>
     <form class="example-form" >
         <div class="container">
             <mat-form-field class="example-full-width" appearance="fill">
@@ -28,7 +32,10 @@
             </mat-form-field>
         </div>
 
-        <button mat-flat-button color="warn" (click)="delete()">Delete</button>
-        <button mat-flat-button color="accent" (click)="cancel()">Cancelar</button>  
+        <div class="botao">
+            <button mat-flat-button color="warn" (click)="delete()">Delete</button>
+            <button mat-flat-button color="accent" (click)="cancel()">Cancelar</button>  
+        </div>
     </form> 
+    </mat-card>
 </mat-card>

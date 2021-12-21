@@ -1,8 +1,39 @@
-.container{
-    display: flex;
-    flex-direction: column;
-}
+.card-principal{
 
-button{
-    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    border: none;
+    
+    .container-card{
+            width: 400px;
+            
+            .img-card{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                box-shadow: none;
+                img{
+                    width: 250px;
+                    margin-top: 1rem;
+                }
+            }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .botao{
+
+            display: flex;
+            justify-content: space-around;
+
+            button{
+                width: 100px;
+            }
+         }
+    }
 }

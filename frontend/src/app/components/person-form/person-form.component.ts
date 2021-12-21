@@ -1,3 +1,4 @@
+import { MatDialogRef } from '@angular/material/dialog';
 import { Iperson } from './../../services/Iperson';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PersonService } from './../../services/person.service';
@@ -14,7 +15,8 @@ export class PersonFormComponent implements OnInit {
   
   constructor(private personService: PersonService, 
     private  router: Router, 
-    private route: ActivatedRoute,) {}
+    private route: ActivatedRoute,
+    ) {}
     
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')

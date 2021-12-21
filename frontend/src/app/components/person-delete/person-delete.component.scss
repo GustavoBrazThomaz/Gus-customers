@@ -1,7 +1,40 @@
-.container{
+.card-principal{
+
     display: flex;
-    flex-direction: column;
-}
-button{
-    margin-right: 1rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    border: none;
+    
+    .container-card{
+            width: 400px;
+            
+            .img-card{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                box-shadow: none;
+                img{
+                    width: 250px;
+                    margin-top: 1rem;
+                }
+            }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .botao{
+
+            display: flex;
+            margin-right: 1rem;
+
+            button{
+                width: 100px;   
+                margin-right: 1rem;      
+            }
+         }
+    }
 }

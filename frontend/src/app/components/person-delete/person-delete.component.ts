@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class PersonDeleteComponent implements OnInit {
 
   person: Iperson;
+  foto: string
+  url: string | 'https://cdn.icon-icons.com/icons2/1674/PNG/512/person_110935.png'
 
   constructor(private personService: PersonService, 
     private  router: Router, 
@@ -19,8 +21,12 @@ export class PersonDeleteComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
     
+    
     this.personService.getPersonWithID(id).subscribe(person =>{
       this.person = person
+
+      this.foto = this.person.firstName
+      this.url = `https://robohash.org/${this.foto}.png?set=set5&bgset=bg1`
     })
   }
 

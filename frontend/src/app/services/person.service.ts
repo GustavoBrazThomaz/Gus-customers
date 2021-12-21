@@ -27,8 +27,8 @@ export class PersonService {
     })
   }
 
-  public getPersonWithCarrer(page: number, size: number, carrer: string, sort: string, sortParam: string): Observable<Pagination>{
-    return this.httpClient.get<Pagination>(API_PATH + '?page=' + page + '&size=' + size + '&carrer=' + carrer + '&sort=' + sort + ',' + sortParam)
+  public getPersonWithCarrer(page: number, size: number, filtro: string ,carrer: string, sort: string, sortParam: string): Observable<Pagination>{
+    return this.httpClient.get<Pagination>(API_PATH + '?page=' + page + '&size=' + size + `&${filtro}=` + carrer + '&sort=' + sort + '&direction=' + sortParam)
   }
 
   public getPersonWithID(id: string): Observable<Iperson>{
