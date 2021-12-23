@@ -36,6 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PersonDeleteComponent } from './components/person-delete/person-delete.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { PersonDeleteComponent } from './components/person-delete/person-delete.
     MatSortModule,
     MatSelectModule,
     MatSnackBarModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatProgressBarModule
   ],
   providers: [HttpClient, LocalDateTimePipe],
   bootstrap: [AppComponent]

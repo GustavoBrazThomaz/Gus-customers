@@ -39,7 +39,9 @@
     <mat-icon (click)="addPerson()">add</mat-icon>
   </mat-toolbar>
 
-  <table mat-table [dataSource]="person" class="mat-elevation-z4" matSort (matSortChange)="sortBy($event)">
+  <mat-progress-bar *ngIf="!previous" mode="indeterminate"></mat-progress-bar>
+
+  <table *ngIf="previous" mat-table [dataSource]="person" class="mat-elevation-z4" matSort (matSortChange)="sortBy($event)">
 
     <!-- id Column -->
     <ng-container matColumnDef="id">
@@ -88,4 +90,6 @@
   <mat-paginator class="mat-elevation-z4" [length]="totalPage" [pageSize]="size"
     [pageSizeOptions]="[5, 10, 15, 20, 100]" (page)="OnPageChange($event)" aria-label="Select page">
   </mat-paginator>
+
+  
 </mat-card>

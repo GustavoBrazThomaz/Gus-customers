@@ -53,6 +53,8 @@ export class TabelaComponent implements OnInit {
   sort: string = ''
   sortParam: string = ""
 
+  previous: boolean = false
+
   constructor(public PersonService: PersonService, public dialog: MatDialog, private router: Router) { }
   
   ngOnInit(): void {
@@ -91,6 +93,7 @@ export class TabelaComponent implements OnInit {
         this.person = data.content; 
         this.totalPage = data.totalElements 
       });
+      this.previous = true
   }
 
   addPerson(): void {

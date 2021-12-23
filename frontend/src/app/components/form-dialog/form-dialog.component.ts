@@ -42,10 +42,11 @@ export class FormDialogComponent implements OnInit {
       this.router.navigate(['/tabela'])
     },
     error => {
-      this.PersonService.showMessage('Preencha todos os campos !!!')
+      this.PersonService.showMessage('Preencha todos os campos!!!')
     },() => {
-      this.PersonService.showMessage('Produto Criado')
+      this.PersonService.showMessage('Pessoa adicionada')
       this.dialogRef.close()
+      window.location.reload()
     });
   }
 

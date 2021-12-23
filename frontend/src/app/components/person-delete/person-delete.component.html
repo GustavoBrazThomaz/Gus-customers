@@ -2,7 +2,8 @@
     <mat-card class="container-card">
         <mat-card-title style="color: red;">Deletar Pessoa</mat-card-title>
         <mat-card class="img-card">
-            <img mat-card-image src="{{url}}" alt="Perfil {{person.firstName}}">
+            <img *ngIf="!loading" class="img-loading" mat-card-image src="https://svgsilh.com/svg/1299805.svg" alt="Perfil {{person.firstName}}">
+            <img *ngIf="loading" mat-card-image src="{{url}}" alt="Perfil {{person.firstName}}">
         </mat-card>
     <form class="example-form" >
         <div class="container">
