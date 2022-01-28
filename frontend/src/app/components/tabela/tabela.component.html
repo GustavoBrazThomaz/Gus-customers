@@ -75,7 +75,7 @@
             edit
           </i>
         </a>
-        <a routerLink="delete/{{ row.id }}" class="delete">
+        <a (click)="deletePerson(row.id)" class="delete">
           <i class="material-icons">
             delete
           </i>

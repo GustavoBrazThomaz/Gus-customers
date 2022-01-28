@@ -35,8 +35,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { PersonDeleteComponent } from './components/person-delete/person-delete.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DeleteDialogComponent } from './components/tabela/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FormDialogComponent,
     LocalDateTimePipe,
     PersonFormComponent,
-    PersonDeleteComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,

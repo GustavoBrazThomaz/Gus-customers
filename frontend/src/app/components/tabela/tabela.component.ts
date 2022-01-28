@@ -1,3 +1,4 @@
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { PersonFormComponent } from './../person-form/person-form.component';
 import { map, Observable, startWith } from 'rxjs';
 import { FormControl } from '@angular/forms';
@@ -60,16 +61,6 @@ export class TabelaComponent implements OnInit {
   ngOnInit(): void {
     
     this.getPerson(this.page, this.size, this.filtro, this.carrer, this.sort, this.sortParam)
-
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value)),
-    );
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   OnPageChange(event){
@@ -105,6 +96,24 @@ export class TabelaComponent implements OnInit {
     });
   } 
 
+  deletePerson(id: number){
+    const dialogRef = this.dialog.open(DeleteDialogComponent)
+
+    dialogRef.afterClosed().subscribe(res => {
+      if(res == "true"){
+        this.PersonService.deletarPerson(id).subscribe(data =>{
+        },
+          error => {
+            this.PersonService.showMessage("Erro ao deletar o cliente")
+            console.error(error)
+          }, () => {
+            this.PersonService.showMessage("Cliente deletado com sucesso")
+            window.location.reload()
+          })
+      }
+    })
+  }
+
   sortBy(event): void{
     this.sort = event.active
     this.sortParam = event.direction
@@ -113,4 +122,3 @@ export class TabelaComponent implements OnInit {
   }
 
 }
-

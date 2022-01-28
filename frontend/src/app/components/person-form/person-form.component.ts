@@ -1,4 +1,5 @@
-import { MatDialogRef } from '@angular/material/dialog';
+import { DeleteDialogComponent } from './../tabela/delete-dialog/delete-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Iperson } from './../../services/Iperson';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PersonService } from './../../services/person.service';
@@ -13,15 +14,16 @@ export class PersonFormComponent implements OnInit {
 
   person: Iperson;
   
-  constructor(private personService: PersonService, 
+  constructor(private PersonService: PersonService, 
     private  router: Router, 
     private route: ActivatedRoute,
+    public dialog: MatDialog
     ) {}
     
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
     
-    this.personService.getPersonWithID(id).subscribe(person =>{
+    this.PersonService.getPersonWithID(id).subscribe(person =>{
       this.person = person
     })
   
@@ -31,18 +33,34 @@ export class PersonFormComponent implements OnInit {
   atualizarProduto(): void{
     const id = this.route.snapshot.paramMap.get('id')
     
-    this.personService.AtualizarPerson(id, this.person).subscribe( data =>{
+    this.PersonService.AtualizarPerson(id, this.person).subscribe( data =>{
       this.urlTabela()
     },error => {
-      this.personService.showMessage('Erro ao Atualizar')
+      this.PersonService.showMessage('Erro ao Atualizar')
     },() => {
-      this.personService.showMessage('Produto Atualizado')
+      this.PersonService.showMessage('Produto Atualizado')
     })
     
   }
 
-  delete(): void{
-    this.router.navigate(['tabela/delete/' + this.person.id])
+  deletePerson(id: number){
+    const dialogRef = this.dialog.open(DeleteDialogComponent)
+    
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res)
+      if(res == "true"){
+        this.PersonService.deletarPerson(id).subscribe(data =>{
+        },
+          error => {
+            this.PersonService.showMessage("Erro ao deletar o cliente")
+            console.error(error)
+          }, () => {
+            this.PersonService.showMessage("Cliente deletado com sucesso")
+            this.urlTabela()
+          })
+      }
+    })
+    
   }
 
   cancel(): void{

@@ -1,7 +1,7 @@
 <mat-card class="card-principal">
     <mat-card class="container-card">
         <mat-card class="img-card">
-            <img mat-card-image src="https://robohash.org/{{person.firstName}}.png?set=set5&bgset=bg1" alt="Perfil {{person.firstName}}">
+            <img mat-card-image src="https://robohash.org/{{person.firstName}}.png?set=set5&bgset=bg1 | ansyc" alt="Perfil {{person.firstName}}">
         </mat-card>
         <form class="example-form" >
             <div class="container">
@@ -35,7 +35,7 @@
             <div class="botao">
                 <button mat-flat-button color="primary" (click)="atualizarProduto()">Atualizar</button>
                 <button mat-flat-button color="accent" (click)="cancel()">Cancelar</button>
-                <button mat-flat-button color="warn" (click)="delete()">Delete</button>
+                <button mat-flat-button color="warn" (click)="deletePerson(person.id)">Delete</button>
             </div>
         </form> 
     </mat-card>
