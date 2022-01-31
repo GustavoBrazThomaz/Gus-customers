@@ -1,8 +1,6 @@
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
-import { PersonFormComponent } from './../person-form/person-form.component';
-import { map, Observable, startWith } from 'rxjs';
+import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Pagination } from './../../services/Pagination.model';
 import { FormDialogComponent } from '../form-dialog/form-dialog.component';
 
@@ -56,7 +54,7 @@ export class TabelaComponent implements OnInit {
 
   previous: boolean = false
 
-  constructor(public PersonService: PersonService, public dialog: MatDialog, private router: Router) { }
+  constructor(public PersonService: PersonService, public dialog: MatDialog) { }
   
   ngOnInit(): void {
     

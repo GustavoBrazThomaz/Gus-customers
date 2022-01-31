@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class PersonFormComponent implements OnInit {
 
   person: Iperson;
-  
+
   constructor(private PersonService: PersonService, 
     private  router: Router, 
     private route: ActivatedRoute,
@@ -26,10 +26,8 @@ export class PersonFormComponent implements OnInit {
     this.PersonService.getPersonWithID(id).subscribe(person =>{
       this.person = person
     })
-  
-  console.log(id)
 }
-  
+
   atualizarProduto(): void{
     const id = this.route.snapshot.paramMap.get('id')
     
@@ -38,7 +36,7 @@ export class PersonFormComponent implements OnInit {
     },error => {
       this.PersonService.showMessage('Erro ao Atualizar')
     },() => {
-      this.PersonService.showMessage('Produto Atualizado')
+      this.PersonService.showMessage('Cliente Atualizado')
     })
     
   }
