@@ -1,7 +1,8 @@
 <mat-card class="card-principal">
     <mat-card class="container-card">
         <mat-card class="img-card">
-            <img mat-card-image src="https://robohash.org/{{person.firstName}}.png?set=set5&bgset=bg1">
+            <img mat-card-image src="https://cdn.icon-icons.com/icons2/1674/PNG/512/person_110935.png" style="z-index: 0;">
+            <img mat-card-image src="https://robohash.org/{{person.firstName}}.png?set=set5&bgset=bg1" style="z-index: 1; position: absolute;">
         </mat-card>
         <form class="example-form" >
             <div class="container">
@@ -28,14 +29,14 @@
 
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Data</mat-label>
-                    <input matInput [(ngModel)]="person.birthDate" name="birthDate">
+                    <input matInput [(ngModel)]="person.birthDate" name="birthDate" [dropSpecialCharacters]="false" mask="0000-00-00">
                 </mat-form-field>
             </div>
 
             <div class="botao">
                 <button mat-flat-button color="primary" (click)="atualizarProduto()">Atualizar</button>
+                <button mat-flat-button color="warn" (click)="deletePerson(person.id)">Deletar</button>
                 <button mat-flat-button color="accent" (click)="cancel()">Cancelar</button>
-                <button mat-flat-button color="warn" (click)="deletePerson(person.id)">Delete</button>
             </div>
         </form> 
     </mat-card>

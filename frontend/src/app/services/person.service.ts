@@ -1,6 +1,6 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Iperson } from './Iperson';
 
@@ -12,12 +12,17 @@ import { Pagination } from './Pagination.model'
 })
 export class PersonService {
 
-  httpOptions = {
+  httpOptionsPost = {
     headers: new HttpHeaders({
       'content-type': 'application/json'
     })
   }
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'status-code': 'status'
+    })
+  }
 
   constructor(private httpClient: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -29,8 +34,15 @@ export class PersonService {
     })
   }
 
-  public getPersonWithCarrer(page: number, size: number, filtro: string ,carrer: string, sort: string, sortParam: string): Observable<Pagination>{
-    return this.httpClient.get<Pagination>(API_PATH + '?page=' + page + '&size=' + size + `&${filtro}=` + carrer + '&sort=' + sort + '&direction=' + sortParam)
+  public getPersonWithCarrer(page: number, size: number, filtro: string ,carrer: string, sort: string, sortParam: string,): Observable<any>{
+
+    let headers = new HttpHeaders()
+    headers = headers.set('Content-Type', 'application/json')
+
+    return this.httpClient.get<any>(API_PATH + '?page=' + page + '&size=' + size + `&${filtro}=` + carrer + '&sort=' + sort + '&direction=' + sortParam, {observe: 'response'})
+    .pipe(
+      map((response) => ({data: response.body , status: response.status}))
+    )
   }
 
   public getPersonWithID(id: string): Observable<Iperson>{
@@ -38,7 +50,7 @@ export class PersonService {
   }
 
   public postPerson(person: any): Observable<Iperson>{
-    return this.httpClient.post<any>(API_PATH, person, this.httpOptions)
+    return this.httpClient.post<any>(API_PATH, person, this.httpOptionsPost)
   }
 
   public AtualizarPerson(id: string, person: Iperson): Observable<Iperson>{

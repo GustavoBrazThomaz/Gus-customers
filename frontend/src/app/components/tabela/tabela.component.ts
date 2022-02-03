@@ -13,8 +13,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 interface Filtro {
-  value: string;
-  viewValue: string;
+  value: string | "firstName";
+  viewValue: string | "Nome";
 }
 
 @Component({
@@ -71,7 +71,14 @@ export class TabelaComponent implements OnInit {
 
   procurar(){
     this.carrer = this.search
-    this.filtro = this.selectedValue
+   
+    if(this.selectedValue == undefined){
+      this.selectedValue = "firstName"
+      this.filtro = this.selectedValue
+    }else{
+      this.filtro = this.selectedValue
+      
+    }
 
     this.getPerson(this.page, this.size, this.filtro, this.carrer, this.sort, this.sortParam)
   }
@@ -79,10 +86,15 @@ export class TabelaComponent implements OnInit {
   getPerson(page, size, filtro ,carrer, sort, sortParam){
     this.PersonService.getPersonWithCarrer(page, size, filtro, carrer, sort, sortParam).subscribe(
       data => {
-        this.person = data.content; 
-        this.totalPage = data.totalElements 
+        
+        this.person = data.data.content; 
+        this.totalPage = data.data.totalElements 
+
+        if( data.status === 200){
+          this.previous = true
+        }
       });
-      this.previous = true
+      
   }
 
   addPerson(): void {

@@ -4,6 +4,7 @@ import { Iperson } from './../../services/Iperson';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PersonService } from './../../services/person.service';
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-person-form',
@@ -26,15 +27,22 @@ export class PersonFormComponent implements OnInit {
     this.PersonService.getPersonWithID(id).subscribe(person =>{
       this.person = person
     })
+
+
 }
 
   atualizarProduto(): void{
     const id = this.route.snapshot.paramMap.get('id')
     
     this.PersonService.AtualizarPerson(id, this.person).subscribe( data =>{
+      
+      let newDate: moment.Moment = moment.utc(this.person.birthDate).local()
+      this.person.birthDate = newDate.format("YYYY-MM-DD")
+      
       this.urlTabela()
     },error => {
       this.PersonService.showMessage('Erro ao Atualizar')
+      console.log(this.person.birthDate)
     },() => {
       this.PersonService.showMessage('Cliente Atualizado')
     })

@@ -4,10 +4,24 @@ mat-toolbar{
 
     background-color: rgb(35, 1, 51);
     display: flex;
-    justify-content: flex-end;
-
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
     span{
         color: white;
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+
+    .span-backend{
+        margin-left: 0.3rem;
+    }
+
+    a{
+        color: white;
+        font-size: 0.8rem;
+        
     }
     .material-icons{
         position: relative;

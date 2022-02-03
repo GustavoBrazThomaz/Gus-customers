@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule } from 'ngx-mask';
 
 // Angular core
 import { HttpClient, HttpClientModule } from '@angular/common/http'
@@ -73,7 +74,10 @@ import { DeleteDialogComponent } from './components/tabela/delete-dialog/delete-
     MatSelectModule,
     MatSnackBarModule,
     MatAutocompleteModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: true // ao salvar, vai manter a mascara
+    }),
   ],
   providers: [HttpClient, LocalDateTimePipe],
   bootstrap: [AppComponent]
