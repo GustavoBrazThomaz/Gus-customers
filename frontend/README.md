@@ -1,15 +1,14 @@
-# Frontend
+# App Lista de Clientes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
 
-## Development server
+## Projeto criado em Angular 13 utilizando Material Angular e API Rest.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+O Projeto tem o objetivo de ser uma lista completa onde o usuário pode Criar, Atualizar, Ver e Deletar um cliente.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Frontend desenvolvido por: [Gustavo Braz](https://github.com/GustavoBrazThomaz)
 
+<<<<<<< HEAD
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
@@ -25,3 +24,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+Backend desenvolvido por: [Rodrigo Motta](https://github.com/rodmotta)
+>>>>>>> 8bdf91c4b9a1ffc7c2661266796d042c8297fda1
